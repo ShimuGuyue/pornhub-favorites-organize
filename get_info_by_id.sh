@@ -19,7 +19,7 @@ echo "正在提取用户 [$USER_ID] 的收藏夹..."
 yt-dlp --cookies "$COOKIE_FILE" \
        --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
        --flat-playlist \
-       --print "%(id)s || %(title)s" \
+       --print "%(id)s || %(url)s || %(title)s" \
        "https://cn.pornhub.com/users/$USER_ID/videos/favorites" \
        > "$OUTPUT_FILE"
 
