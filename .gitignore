@@ -1,5 +1,7 @@
 cookies.txt
-favorites.txt
-user_id.txt
+personal_info.conf
 
 temp/
+vedio/
+
+*.log
