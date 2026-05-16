@@ -1,6 +1,12 @@
 #!/bin/bash
 
+LOG_FILE="./run.log"
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 printf '=%.0s' {1..100}; echo
+printf '=%.0s' {1..100}; echo
+printf '=%.0s' {1..100}; echo
+echo "[$(date "+%Y-%m-%d %H:%M:%S")]"
 echo "正在运行 sync_with_hub.sh..."
 echo
 
@@ -59,7 +65,10 @@ echo "4. 开始整理视频信息..."
 "./organize_vedio_info.sh"
 
 echo "视频信息整理完成"
-echo
 
 # 5. 输出信息
 echo "完成：pornhub favorites 页面视频已同步到本地。"
+
+echo
+echo
+echo
