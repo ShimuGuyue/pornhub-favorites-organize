@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf '=%.0s' {1..100}; echo
-echo "正在运行 get_info_by_id.sh..."
+echo "正在运行 get_info_by_user_id.sh..."
 echo
 
 # 1. 加载配置文件
