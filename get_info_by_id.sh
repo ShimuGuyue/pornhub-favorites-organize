@@ -42,14 +42,14 @@ echo "正在提取用户 [$USER_ID] 的收藏夹..."
 yt-dlp --cookies "$COOKIE_FILE" \
        --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
        --flat-playlist \
-       --print "%(id)s || %(url)s || %(title)s" \
+       --print "%(id)s || %(title)s" \
        "https://cn.pornhub.com/users/$USER_ID/videos/favorites" \
        > $HUB_INFO_FILE
 
 # 3. 结果反馈
 if [ -s "$HUB_INFO_FILE" ]; then
     echo "提取完成！共提取 $(wc -l < "$HUB_INFO_FILE") 个视频信息，已保存至 $HUB_INFO_FILE"
-    echo "信息保存格式为：\"vedio_id || url || title\""
+    echo "信息保存格式为：\"id || title\""
 else
     echo "提取失败。"
 fi
