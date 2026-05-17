@@ -44,7 +44,7 @@ yt-dlp --cookies "$COOKIE_FILE" \
        --flat-playlist \
        --print "%(id)s || %(title)s" \
        "https://cn.pornhub.com/users/$USER_ID/videos/favorites" \
-       > $HUB_INFO_FILE
+       | tac > $HUB_INFO_FILE
 
 # 3. 结果反馈
 if [ -s "$HUB_INFO_FILE" ]; then
