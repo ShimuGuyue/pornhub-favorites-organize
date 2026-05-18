@@ -68,7 +68,8 @@ yt-dlp --cookies "$COOKIE_FILE" \
        --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
        -f "bestvideo+bestaudio/best" \
        --no-cache-dir \
-       -o "$DOWNLOAD_PATH/[%(id)s] [%(uploader)s] [$RENAME_TITLE] [%(duration_string)s].mp4" \
+       --parse-metadata "$RENAME_TITLE:%(rename_title)s" \
+       -o "$DOWNLOAD_PATH/[%(id)s] [%(uploader)s] [%(rename_title)s] [%(duration_string)s].mp4" \
        "http://cn.pornhub.com/view_video.php?viewkey=$VEDIO_ID"
 
 if [[ $? -eq 0 ]]; then
