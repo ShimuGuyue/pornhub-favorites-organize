@@ -40,8 +40,8 @@ if [[ -z "$DOWNLOAD_PATH" ]]; then
     exit 1
 fi
 
-if [[ -z "$VEDIO_INFO_FILE" ]]; then
-    echo "错误：$CONF_FILE 中未配置 VEDIO_INFO_FILE"
+if [[ -z "$VEDIO_INFO_JSON" ]]; then
+    echo "错误：$CONF_FILE 中未配置 VEDIO_INFO_JSON"
     exit 1
 fi
 
@@ -61,7 +61,7 @@ yt-dlp --cookies "$COOKIE_FILE" \
        --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
        --print "{\"id\": \"%(id)s\", \"作者\": \"%(uploader)s\", \"标题\": \"$RENAME_TITLE\", \"时长\": \"%(duration_string)s\"}" \
        "http://cn.pornhub.com/view_video.php?viewkey=$VEDIO_ID" \
-        >> "$VEDIO_INFO_FILE" 2>/dev/null
+        >> "$VEDIO_INFO_JSON" 2>/dev/null
 
 # 下载视频
 yt-dlp --cookies "$COOKIE_FILE" \
