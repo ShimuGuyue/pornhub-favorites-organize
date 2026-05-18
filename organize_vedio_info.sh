@@ -22,8 +22,7 @@ if [[ -z "$VEDIO_INFO_FILE" ]]; then
 fi
 
 # 2. 整理文件信息
-# VEDIO_INFO_FILE 为 json 文件
-echo "开始整理视频信息..."
+echo "开始将视频信息整理到 JSON 文件..."
 
 TEMP_FILE="${VEDIO_INFO_FILE}.tmp"
 
@@ -39,6 +38,6 @@ echo "]" >> "$TEMP_FILE"
 
 mv "$TEMP_FILE" "$VEDIO_INFO_FILE"
 
-echo "视频信息整理完成！"
+echo "视频信息已整理到 JSON 文件"
 
 echo

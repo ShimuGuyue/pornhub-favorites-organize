@@ -27,9 +27,16 @@ if [[ -z "$HUB_INFO_FILE" ]]; then
     exit 1
 fi
 
+echo "1. 配置文件加载完成"
+echo
+
 # 2. 获取 pornhub 视频信息
 echo "2. 正在获取 pornhub 收藏夹视频信息..."
+
 "./get_info_by_user_id.sh"
+
+echo "收藏夹视频信息获取完成"
+echo
 
 # 3. 下载视频
 echo "3. 开始批量下载收藏夹视频..."
@@ -50,25 +57,24 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     [[ $? -ne 0 ]] && FAILED_IDS+="$VIDEO_ID "
 done < "$HUB_INFO_FILE"
 
-echo "所有任务处理完毕！"
-
+echo "视频下载完成"
 if [[ -n "$FAILED_IDS" ]]; then
     echo "以下 ID 视频下载失败: $FAILED_IDS"
 else
     echo "所有视频下载成功！"
 fi
+echo
 
 # 4. 整理信息
 echo "4. 开始整理视频信息..."
 
 # 执行整理脚本
 "./organize_vedio_info.sh"
+"./json_to_csv.sh"
 
 echo "视频信息整理完成"
+echo
 
 # 5. 输出信息
-echo "完成：pornhub favorites 页面视频已同步到本地。"
-
-echo
-echo
+echo "完成：pornhub favorites 页面视频已同步到本地"
 echo
