@@ -9,3 +9,4 @@ HUB_INFO_FILE=${DOWNLOAD_PATH}"/favorites.txt"
 # 视频信息保存文件
 VEDIO_INFO_JSON=${DOWNLOAD_PATH}"/vedio_info.json"
 VEDIO_INFO_CSV=${DOWNLOAD_PATH}"/vedio_info.csv"
+TAG_FILE=${DOWNLOAD_PATH}"/tag.txt"
